@@ -29,11 +29,16 @@ london_co = {
 # Get user input for device name
 device_name = input("Enter device name: ")
 
-device_parameter = input("Enter parameter name: ")
+# Create a string of available parameters for the chosen device
+parameter_string  = ", ".join(london_co.get(device_name, {}).keys())
+
+# Get user input for device parameter
+device_parameter = input(f"Enter parameter name ({parameter_string}): ")
 
 # Retrieve device information based on user input || provide default message if device not found
 device_information = london_co.get(device_name, "Not Found")
 
+# Retrieve specific device parameter information || provide default message if parameter not found
 device_parameter_information = device_information.get(device_parameter, "Not Found")
 
 # Print the device parameter information
