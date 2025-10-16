@@ -29,8 +29,12 @@ london_co = {
 # Get user input for device name
 device_name = input("Enter device name: ")
 
+device_parameter = input("Enter parameter name: ")
+
 # Retrieve device information based on user input || provide default message if device not found
 device_information = london_co.get(device_name, "Not Found")
 
-# Print the device information
-print(device_information)
+device_parameter_information = device_information.get(device_parameter, "Not Found")
+
+# Print the device parameter information
+print(device_parameter_information)
