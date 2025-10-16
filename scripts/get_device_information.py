@@ -32,7 +32,7 @@ device_name = input("Enter device name: ")
 # Create a string of available parameters for the chosen device
 parameter_string  = ", ".join(london_co.get(device_name, {}).keys())
 
-# Get user input for device parameter
+# Get user input for device parameter || convert to lowercase for consistency
 device_parameter = input(f"Enter parameter name ({parameter_string}): ").lower()
 
 # Retrieve device information based on user input || provide default message if device not found
