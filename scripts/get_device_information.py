@@ -39,7 +39,7 @@ device_parameter = input(f"Enter parameter name ({parameter_string}): ")
 device_information = london_co.get(device_name, "Not Found")
 
 # Retrieve specific device parameter information || provide default message if parameter not found
-device_parameter_information = device_information.get(device_parameter, "Not Found")
+device_parameter_information = device_information.get(device_parameter, "No such parameter")
 
 # Print the device parameter information
 print(device_parameter_information)
