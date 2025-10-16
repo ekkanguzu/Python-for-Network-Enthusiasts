@@ -33,7 +33,7 @@ device_name = input("Enter device name: ")
 parameter_string  = ", ".join(london_co.get(device_name, {}).keys())
 
 # Get user input for device parameter
-device_parameter = input(f"Enter parameter name ({parameter_string}): ")
+device_parameter = input(f"Enter parameter name ({parameter_string}): ").lower()
 
 # Retrieve device information based on user input || provide default message if device not found
 device_information = london_co.get(device_name, "Not Found")
