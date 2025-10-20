@@ -1,7 +1,9 @@
 
 # script works with data/config_sw1.txt
 # script is executed as: python get_switch_command.py config_sw1.txt
-# file name is provided as a command line argument
+# source file name is provided as a first command line argument
+# destination file name is provided as a second command line argument
+
 
 from sys import argv
 
