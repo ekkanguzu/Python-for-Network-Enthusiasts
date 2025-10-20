@@ -4,6 +4,9 @@
 
 # open the MAC address table file
 with open('data/CAM_table.txt') as f:
+
+    result = []
+
     for line in f:
         # remove leading and trailing space in the line
         line = line.strip()
@@ -17,9 +20,14 @@ with open('data/CAM_table.txt') as f:
 
         # process only lines that start with a digit
         if first_character.isdigit():
-            
+
             # split the line into components and unpack into variables
             vlan, mac, _, port = line.split()
 
-            # print the extracted information in a formatted way
-            print(f'{vlan:<10} {mac:<18} {port:<18}')
+            result.append((vlan, mac, port))
+    
+    sorted_result = sorted(result, key=lambda x: (int(x[0])))
+
+    # print the extracted information in a formatted way
+    for vlan, mac, port in sorted_result:
+        print(f'{vlan:<10} {mac:<18} {port:<18}')
