@@ -1,4 +1,5 @@
 
+# templates for access and trunk ports
 access_template = [
     "switchport mode access",
     "switchport access vlan",
@@ -12,9 +13,13 @@ trunk_template = [
     "switchport trunk allowed vlan",
 ]
 
+# access ports and their VLANs
 access = {"0/12": "10", "0/14": "11", "0/16": "17", "0/17": "150"}
+
+# trunk ports and their VLAN operations
 trunk = {"0/1": ["add", "10", "20"], "0/2": ["only", "11", "30"], "0/4": ["del", "17"]}
 
+# print configuration for access ports
 for intf, vlan in access.items():
     print("interface FastEthernet" + intf)
     for command in access_template:
@@ -25,6 +30,7 @@ for intf, vlan in access.items():
 
 print("\n----------For trunk ports---------\n")
 
+# print configuration for trunk ports
 for intf, vlan_list in trunk.items():
     print("interface FastEthernet" + intf)
     for command in trunk_template:
