@@ -2,6 +2,9 @@
 # script works with data/CAM_table.txt
 # extract VLAN, MAC address, and port from the MAC address table
 
+
+vlan_number = input("Enter VLAN number: ")
+
 # open the MAC address table file
 with open('data/CAM_table.txt') as f:
 
@@ -14,12 +17,16 @@ with open('data/CAM_table.txt') as f:
         # skip empty lines
         if line == '':
             continue
+
         
         # get the first character of the line
         first_character = line.split()[0][0]
 
         # process only lines that start with a digit
         if first_character.isdigit():
+            # skip lines that do not match the specified VLAN number
+            if line.split()[0] != vlan_number:
+                continue
 
             # split the line into components and unpack into variables
             vlan, mac, _, port = line.split()
