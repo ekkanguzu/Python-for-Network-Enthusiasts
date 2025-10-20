@@ -8,11 +8,14 @@ from sys import argv
 # script will skip lines that inlcude these words
 ignore_list = ["duplex", "alias", "Current configuration"]
 
-# get the file name from command line argument and construct the full path
-file_name = 'data/' + argv[1]
+# get the source file name from command line argument and construct the full path
+source_file_name = 'data/' + argv[1]
+
+# get the destination file name from command line argument and construct the full path
+dest_file_name = 'data/' + argv[2]
 
 # open the switch configuration file
-with open(file_name) as f:
+with open(source_file_name) as f, open(dest_file_name, 'w') as dest_f:
     for line in f:
         line = line.strip()
         
@@ -31,5 +34,5 @@ with open(file_name) as f:
         if skip_line:
             continue
 
-        # print the remaining lines
-        print(line)
+        # write the cleaned line to the destination file
+        dest_f.write(line + '\n')
