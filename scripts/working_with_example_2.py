@@ -9,14 +9,14 @@ with open('data/sh_ip_interface.txt') as f:
             
             # extract the interface name
             interface = line.split()[0]
-
-            # initialize the dictionary for this interface
-            result[interface] = {}
         
         # check for lines that contain 'Internet address'
         elif "Internet address" in line:
             # extract the IP address
             ip_address = line.split()[-1]
+
+            # initialize the dictionary for this interface
+            result[interface] = {}
 
             # store the IP address in the dictionary
             result[interface]['ip'] = ip_address
