@@ -1,5 +1,7 @@
 
 # script works with data/config_sw1.txt
+# script is executed as: python get_switch_command.py config_sw1.txt
+# file name is provided as a command line argument
 
 from sys import argv
 
@@ -10,7 +12,7 @@ file_name = 'data/' + argv[1]
 with open(file_name) as f:
     for line in f:
         line = line.strip()
-        
+
         # skip lines that start with "!"
         if line.startswith("!"):
             continue
